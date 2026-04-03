@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Danh sách sách</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1 class="mb-3">Danh sách sách</h1>
+    <p class="mb-3">
+        <a th:href="@{/books/add}" class="btn btn-primary">Thêm sách mới</a>
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Tiêu đề</th>
+                <th>Tác giả</th>
+                <th>Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">1</td>
+                <td th:text="${book.title}">Tiêu đề</td>
+                <td th:text="${book.author}">Tác giả</td>
+                <td>
+                    <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-sm btn-warning me-1">Sửa</a>
+                    <a th:href="@{/books/delete/{id}(id=${book.id})}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Bạn có chắc muốn xóa?');">Xóa</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Trang chủ</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1 class="mb-3">Chào mừng</h1>
+    <p>Ứng dụng demo quản lý sách với Spring Boot và Thymeleaf.</p>
+    <a th:href="@{/books}" class="btn btn-primary">Đến danh sách sách</a>
+</div>
+</body>
+</html>
